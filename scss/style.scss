@@ -1,47 +1,51 @@
 @use "variables" as *;
 @use "buttons" as *;
 @use "mixins" as *;
-@use  "media" as *;
+@use "media" as *;
+@use "functions"as *; 
+
 
 body {
+  margin: 0;
   font-family: $font-family;
   background: $gray;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
 .card {
-  @include responsive(xs){
+  box-sizing: border-box;
+  @include responsive(xs) {
     background: red;
   }
-  @include responsive(xl){
-    background: orange
-  };
+  @include responsive(xl) {
+    background: orange;
+  }
+  position: absolute;
+  left: centerAbsolute(500px);
+  top: centerAbsolute(400px);
   width: 500px;
   height: 300px;
   border: 1px solid #ccc;
   background: white;
   border-radius: 30px;
   padding: 2rem;
-  h1{
+  h1 {
     font-size: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid $gray;
-    span{
-        color: green;
-        @include responsive (xs){
-          color: red;
-        }
+    span {
+      color: green;
+      @include responsive(xs) {
+        color: red;
+      }
     }
   }
-  .text{
+  .text {
     color: #333;
   }
-  ul{
+  ul {
     @include inline-list;
   }
+  
 }
-
-
